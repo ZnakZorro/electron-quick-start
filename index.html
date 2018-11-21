@@ -1,19 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
+<head>
+   <title>radio Electron</title>
+   <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> 
+	<meta name="apple-mobile-web-app-capable" content="yes"> 
+	<meta name="apple-mobile-web-app-title" content="mobiAPP"> 
+	<meta name="mobile-web-app-capable" content="yes"> 
+   <link rel="stylesheet" href="css/site.css">
+    <style>
+
+    </style>
+    <script src="js/radio.js"></script>
+    <script>
+    let radio = function(ten,nr){
+      let id = ten.dataset.radio;
+      console.log(ten.dataset.radio);
+      ajxpost('radio',id);      
+      $$('div#klawisze button').forEach(function(e){e.classList.remove('active')})
+      ten.classList.add('active');
+    }
+    /*
+      let data = `radio/${nr}`;
+      console.log(data);
+      $('#info').innerHTML = data;
+      postData('http://82.145.73.169:8888', data)
+      .then(data => $('#radio').innerHTML =(JSON.stringify(data)))
+      .catch(error => $('#radio').innerHTML = JSON.stringify(error));
+    */
+    </script>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <h3 id="title" >radio Electron</h3>
 
     <script>
       // You can also require other files to run in this process
       require('./renderer.js')
     </script>
+    <div id="klawisze">
+      <button data-radio=1 class="btn" onClick="radio(this,1)">Tok-FM</button>
+      <button data-radio=3 class="btn" onClick="radio(this,3)">Clasic</button>
+      <button data-radio=4 class="btn" onClick="radio(this,4)">Jedynka</button>
+      <button data-radio=5 class="btn" onClick="radio(this,5)">Dwójka</button>
+      <button data-radio=6 class="btn" onClick="radio(this,6)">Trójka</button>
+      <button data-radio=7 class="btn" onClick="radio(this,7)">Czwórka</button>
+      <button data-radio=8 class="btn" onClick="radio(this,8)">PR24</button>
+      <button data-radio=9 class="btn" onClick="radio(this,9)" title="9">Szczecin</button>
+      
+    </div>
+    <div id="info"></div>
+    <pre id="radio"></pre>
+    
+<br /><br /><br /><br />    
+    <!-- All of the Node.js APIs are available in this renderer process. -->
+    We are using Node.js <script>document.write(process.versions.node)</script>,
+    Chromium <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
+    
+    
   </body>
 </html>
