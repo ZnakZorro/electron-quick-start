@@ -36,6 +36,24 @@ document.addEventListener('DOMContentLoaded', function() {
 });// dom ready
 
 
+let pogody = [
+'https://www.yr.no/place/Poland/West_Pomerania/Szczecin/avansert_meteogram.png',
+'https://www.yr.no/place/Poland/West_Pomerania/Szczecin_Dąbie/avansert_meteogram.png',
+'https://www.yr.no/place/Poland/Masovia/Warsaw/avansert_meteogram.png',
+'https://www.yr.no/place/Poland/Kuyavian-Pomerania/Bydgoszcz/avansert_meteogram.png',
+'https://www.yr.no/place/Germany/Berlin/Berlin/avansert_meteogram.png'
+];
+
+let pokazPogoda =function(nr){
+   $('#info').innerHTML = '<img src="'+pogody[nr]+'">'
+}
+let pokazInfo =function(nr){
+   $('#info').innerHTML = '<img src="'+pogody[1]+'">'
+}
+let JasnoCiemno = function(nr){
+   if(nr===0) {document.body.style.background = '#fff';document.body.style.color = '#000';}
+   if(nr===1) {document.body.style.background = '#666';document.body.style.color = '#fff';}
+}
 
 
 
